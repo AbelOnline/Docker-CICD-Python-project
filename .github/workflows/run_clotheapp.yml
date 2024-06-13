@@ -1,0 +1,33 @@
+name: Run ClotheApp Script
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'clotheapp.py'
+      - 'requirements.txt'
+  schedule:
+    - cron: '0 8 * * *'  # Exécute le script tous les jours à 8h00 UTC
+
+jobs:
+  run-script:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v3
+      with:
+        python-version: '3.8'
+
+    - name: Install dependencies
+      run: pip install -r requirements.txt
+
+    - name: Run script
+      env:
+        OPENWEATHER_API_KEY: ${{ secrets.OPENWEATHER_API_KEY }}
+        SENDER_EMAIL: ${{ secrets.SENDER_EMAIL }}
+        EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
+      run: python clotheapp.py
