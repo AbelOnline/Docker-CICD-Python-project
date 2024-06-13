@@ -1,4 +1,4 @@
 {
-    "sender_email": "",
-    "password": ""
+  "sender_email": "SENDER_EMAIL",
+  "password": "EMAIL_PASSWORD"
 }
