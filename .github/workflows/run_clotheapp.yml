@@ -8,7 +8,7 @@ on:
       - 'clotheapp.py'
       - 'requirements.txt'
   schedule:
-    - cron: '10 12 * * *'  # Exécute le script tous les jours à 12h10 UTC (14h10 heure de Paris)
+    - cron: '*/5 * * * *'  # Exécute le script toutes les 5 minutes
 
 jobs:
   run-script:
