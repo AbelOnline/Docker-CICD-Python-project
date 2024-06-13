@@ -9,6 +9,7 @@ on:
       - 'requirements.txt'
   schedule:
     - cron: '0 8 * * *'  # Exécute le script tous les jours à 8h00 UTC
+  workflow_dispatch:  # Permet le déclenchement manuel du workflow
 
 jobs:
   run-script:
