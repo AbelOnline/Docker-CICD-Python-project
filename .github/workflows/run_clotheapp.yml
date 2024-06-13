@@ -8,15 +8,15 @@ on:
       - 'clotheapp.py'
       - 'requirements.txt'
   schedule:
-    - cron: '48 11 * * *'  # Exécute le script tous les jours à 11h40 UTC (13h40 heure de Paris)
-  workflow_dispatch:  # Permet le déclenchement manuel du workflow
+    - cron: '54 11 * * *'  # Exécute le script tous les jours à 11h48 UTC (13h48 heure de Paris)
 
 jobs:
   run-script:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
+    - name: Checkout code
+      uses: actions/checkout@v2
 
     - name: Set up Python
       uses: actions/setup-python@v3
