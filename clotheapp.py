@@ -2,6 +2,7 @@ import requests
 from datetime import datetime
 import smtplib
 import json
+import os  # Import os module for environment variables
 
 def choose_clothes(temperature, weather, rain_percentage):
     clothes = ""
@@ -18,7 +19,7 @@ def choose_clothes(temperature, weather, rain_percentage):
     return clothes
 
 def get_clothing_recommendations():
-    api_key = '34a4327482a69e272f99c33b87245862'
+    api_key = os.getenv('OPENWEATHER_API_KEY')  # Use environment variable for API key
     city = 'Paris'
     url = f"http://api.openweathermap.org/data/2.5/forecast?q={city}&appid={api_key}&units=metric"
 
@@ -38,15 +39,10 @@ def get_clothing_recommendations():
                     weekly_clothes.append(f"Le {weekday}, vous devriez porter : {clothing_recommendation}")
     return "\n".join(weekly_clothes)
 
-def load_config():
-    with open('config.json', 'r') as file:
-        return json.load(file)
-
 def send_email(message_body):
-    config = load_config()
-    sender_email = config['sender_email']
-    receiver_email = config['sender_email']  # Utiliser la même adresse pour l'expéditeur et le destinataire
-    password = config['password']
+    sender_email = os.getenv('SENDER_EMAIL')
+    receiver_email = sender_email  # Assuming you're sending to yourself for now
+    password = os.getenv('EMAIL_PASSWORD')
     subject = "Clothe This Week"
     text = f"Subject: {subject}\n\n{message_body}"
 
@@ -66,4 +62,3 @@ if __name__ == "__main__":
     clothing_message = get_clothing_recommendations()
     # Envoyer l'email avec les recommandations
     send_email(clothing_message)
-
