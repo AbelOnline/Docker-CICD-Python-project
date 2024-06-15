@@ -8,17 +8,6 @@ on:
       - 'clotheapp.py'
       - 'requirements.txt'
   schedule:
-    - cron: '0 8 * * *'  # Exécute le script à 10h00 heure française (8h00 UTC en été)
-    - cron: '0 9 * * *'  # Exécute le script à 11h00 heure française (9h00 UTC en été)
-    - cron: '0 10 * * *' # Exécute le script à 12h00 heure française (10h00 UTC en été)
-    - cron: '0 11 * * *' # Exécute le script à 13h00 heure française (11h00 UTC en été)
-    - cron: '0 12 * * *' # Exécute le script à 14h00 heure française (12h00 UTC en été)
-    - cron: '0 13 * * *' # Exécute le script à 15h00 heure française (13h00 UTC en été)
-    - cron: '0 14 * * *' # Exécute le script à 16h00 heure française (14h00 UTC en été)
-    - cron: '0 15 * * *' # Exécute le script à 17h00 heure française (15h00 UTC en été)
-    - cron: '20 16 * * *' # Exécute le script à 18h00 heure française (16h00 UTC en été)
-    - cron: '0 17 * * *' # Exécute le script à 19h00 heure française (17h00 UTC en été)
-    - cron: '0 18 * * *' # Exécute le script à 20h00 heure française (18h00 UTC en été)
     - cron: '0 19 * * *' # Exécute le script à 21h00 heure française (19h00 UTC en été)
     - cron: '0 20 * * *' # Exécute le script à 22h00 heure française (20h00 UTC en été)
 
